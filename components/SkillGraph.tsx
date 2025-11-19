@@ -12,14 +12,14 @@ export const SkillGraph: React.FC<SkillGraphProps> = ({ data }) => {
   useEffect(() => {
     if (!svgRef.current) return;
 
-    const width = 500;
-    const height = 400;
+    const width = 800;
+    const height = 600;
 
     // Clear previous
     d3.select(svgRef.current).selectAll("*").remove();
 
     const svg = d3.select(svgRef.current)
-      .attr("viewBox", [0, 0, width, height])
+      .attr("viewBox", "0 0 800 600")
       .attr("class", "max-w-full h-auto overflow-visible");
 
     // Add glow defs
@@ -33,11 +33,25 @@ export const SkillGraph: React.FC<SkillGraphProps> = ({ data }) => {
     feMerge.append("feMergeNode").attr("in", "coloredBlur");
     feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
-    const simulation = d3.forceSimulation<SkillNode>(JSON.parse(JSON.stringify(data.nodes)))
-      .force("link", d3.forceLink<SkillNode, SkillLink>(JSON.parse(JSON.stringify(data.links))).id(d => d.id).distance(60))
-      .force("charge", d3.forceManyBody().strength(-150))
+    const initialNodes = JSON.parse(JSON.stringify(data.nodes)).map((node: SkillNode) => ({
+      ...node,
+      x: width / 2 + (Math.random() - 0.5) * 50, // Jitter to prevent stacking
+      y: height / 2 + (Math.random() - 0.5) * 50
+    }));
+
+    const simulation = d3.forceSimulation<SkillNode>(initialNodes)
+      .force("link", d3.forceLink<SkillNode, SkillLink>(JSON.parse(JSON.stringify(data.links))).id(d => d.id).distance(120))
+      .force("charge", d3.forceManyBody().strength(-400))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collide", d3.forceCollide().radius(d => (d as SkillNode).radius + 10));
+      .force("collide", d3.forceCollide().radius(d => {
+        const node = d as SkillNode;
+        // Estimate text width (approx 8px per char for 12px font)
+        const textWidth = node.id.length * 8;
+        // Use the larger of the circle radius or half the text width, plus padding
+        return Math.max(node.radius, textWidth / 1.8) + 15;
+      }));
+
+    simulation.alpha(1).restart();
 
     const link = svg.append("g")
       .attr("stroke", "#233554")
@@ -49,7 +63,7 @@ export const SkillGraph: React.FC<SkillGraphProps> = ({ data }) => {
 
     const nodeGroup = svg.append("g")
       .selectAll("g")
-      .data(JSON.parse(JSON.stringify(data.nodes)) as SkillNode[])
+      .data(initialNodes)
       .join("g")
       .call(d3.drag<SVGGElement, SkillNode>()
         .on("start", dragstarted)
@@ -117,13 +131,13 @@ export const SkillGraph: React.FC<SkillGraphProps> = ({ data }) => {
 
   return (
     <div className="my-8 rounded-lg bg-slate-800/30 p-4 border border-slate-700/50 hover:border-teal-500/30 transition-colors">
-        <h4 className="text-sm font-semibold text-slate-200 mb-2 uppercase tracking-wider text-center">Skill Interaction Network</h4>
-        <div ref={svgRef as any} className="w-full h-[400px]" />
-        <div className="flex gap-4 text-xs justify-center mt-2 text-slate-400">
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#64ffda] opacity-50"></span>Engineering</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#8892b0] opacity-50"></span>Tech/Data</span>
-            <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#ccd6f6] opacity-50"></span>Management</span>
-        </div>
+      <h4 className="text-sm font-semibold text-slate-200 mb-2 uppercase tracking-wider text-center">Skill Interaction Network</h4>
+      <svg ref={svgRef} className="w-full h-[600px]" />
+      <div className="flex gap-4 text-xs justify-center mt-2 text-slate-400">
+        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#64ffda] opacity-50"></span>Engineering</span>
+        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#8892b0] opacity-50"></span>Tech/Data</span>
+        <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-[#ccd6f6] opacity-50"></span>Management</span>
+      </div>
     </div>
   );
 };

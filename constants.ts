@@ -113,39 +113,73 @@ export const PROJECTS: Project[] = [
 
 export const D3_DATA: GraphData = {
   nodes: [
-    { id: "Engineering", group: 1, radius: 25 },
-    { id: "Project Mgmt", group: 3, radius: 20 },
-    { id: "Data & AI", group: 2, radius: 20 },
-    { id: "Python", group: 2, radius: 15 },
-    { id: "AutoCAD", group: 1, radius: 15 },
-    { id: "SolidWorks", group: 1, radius: 15 },
+    // Groups: 1=Engineering, 2=Data/Tech, 3=Management
+    { id: "Engineering", group: 1, radius: 30 },
+    { id: "Project Mgmt", group: 3, radius: 25 },
+    { id: "Data & AI", group: 2, radius: 25 },
+
+    // Engineering
+    { id: "Gas Pipelines", group: 1, radius: 18 },
+    { id: "Compressor St.", group: 1, radius: 18 },
+    { id: "FEED", group: 1, radius: 15 },
+    { id: "Detailed Design", group: 1, radius: 15 },
+    { id: "HAZOP", group: 1, radius: 12 },
+    { id: "Regulatory", group: 1, radius: 15 }, // PED, ATEX, CE
+    { id: "3D Modeling", group: 1, radius: 15 },
+
+    // Tech / Tools
+    { id: "Python", group: 2, radius: 18 },
+    { id: "Big Data", group: 2, radius: 15 },
+    { id: "Power Query", group: 2, radius: 15 },
+    { id: "Automation", group: 2, radius: 18 },
+    { id: "Prompt Eng", group: 2, radius: 15 },
+    { id: "AutoCAD", group: 1, radius: 12 },
+    { id: "SolidWorks", group: 1, radius: 12 },
     { id: "Kompas 3D", group: 1, radius: 10 },
-    { id: "FEED", group: 1, radius: 12 },
-    { id: "EPC", group: 3, radius: 12 },
-    { id: "HAZOP", group: 1, radius: 10 },
-    { id: "Power Query", group: 2, radius: 12 },
-    { id: "Automation", group: 2, radius: 15 },
-    { id: "Regulatory", group: 3, radius: 10 },
-    { id: "Pipelines", group: 1, radius: 18 },
-    { id: "Prompt Eng", group: 2, radius: 12 }
+
+    // Management
+    { id: "EPC Contracts", group: 3, radius: 15 },
+    { id: "Stakeholder Mgmt", group: 3, radius: 15 },
+    { id: "Risk Mgmt", group: 3, radius: 12 },
+    { id: "Doc Control", group: 3, radius: 12 }, // MDR/MDI
+    { id: "Cost Est.", group: 3, radius: 12 }
   ],
   links: [
-    { source: "Engineering", target: "Pipelines", value: 5 },
-    { source: "Engineering", target: "AutoCAD", value: 3 },
-    { source: "Engineering", target: "SolidWorks", value: 3 },
-    { source: "Engineering", target: "Kompas 3D", value: 2 },
+    // Engineering Center
+    { source: "Engineering", target: "Gas Pipelines", value: 5 },
+    { source: "Engineering", target: "Compressor St.", value: 5 },
     { source: "Engineering", target: "FEED", value: 4 },
-    { source: "Engineering", target: "HAZOP", value: 2 },
-    { source: "Project Mgmt", target: "EPC", value: 4 },
-    { source: "Project Mgmt", target: "Regulatory", value: 3 },
+    { source: "Engineering", target: "Detailed Design", value: 4 },
+    { source: "Engineering", target: "Regulatory", value: 3 },
+    { source: "Engineering", target: "3D Modeling", value: 4 },
+    { source: "Engineering", target: "HAZOP", value: 3 },
+
+    // 3D Modeling Tools
+    { source: "3D Modeling", target: "AutoCAD", value: 3 },
+    { source: "3D Modeling", target: "SolidWorks", value: 3 },
+    { source: "3D Modeling", target: "Kompas 3D", value: 2 },
+
+    // Mgmt Center
     { source: "Project Mgmt", target: "Engineering", value: 5 },
+    { source: "Project Mgmt", target: "EPC Contracts", value: 4 },
+    { source: "Project Mgmt", target: "Stakeholder Mgmt", value: 4 },
+    { source: "Project Mgmt", target: "Risk Mgmt", value: 3 },
+    { source: "Project Mgmt", target: "Doc Control", value: 3 },
+    { source: "Project Mgmt", target: "Cost Est.", value: 3 },
+
+    // Data Center
     { source: "Data & AI", target: "Python", value: 5 },
-    { source: "Data & AI", target: "Power Query", value: 3 },
-    { source: "Data & AI", target: "Prompt Eng", value: 4 },
+    { source: "Data & AI", target: "Big Data", value: 4 },
+    { source: "Data & AI", target: "Power Query", value: 4 },
     { source: "Data & AI", target: "Automation", value: 5 },
-    { source: "Automation", target: "Engineering", value: 4 },
-    { source: "Python", target: "Project Mgmt", value: 2 }, // Analytics for mgmt
+    { source: "Data & AI", target: "Prompt Eng", value: 4 },
+
+    // Cross-Domain
+    { source: "Automation", target: "Doc Control", value: 4 }, // Python for docs
+    { source: "Automation", target: "Engineering", value: 3 }, // Checklists
+    { source: "Big Data", target: "Risk Mgmt", value: 3 }, // Analytics for risk
     { source: "Data & AI", target: "Project Mgmt", value: 3 },
+    { source: "Regulatory", target: "Doc Control", value: 2 },
   ]
 };
 

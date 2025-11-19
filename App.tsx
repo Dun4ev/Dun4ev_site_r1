@@ -4,13 +4,13 @@ import { CursorSpotlight } from './components/CursorSpotlight';
 import { Navigation } from './components/Navigation';
 import { ExperienceCard } from './components/ExperienceCard';
 import { ProjectCard } from './components/ProjectCard';
-import { SkillGraph } from './components/SkillGraph';
+import { SkillCloud } from './components/SkillCloud';
 import { SkillRadar } from './components/SkillRadar';
 import { JOBS, D3_DATA, SOCIAL_LINKS, PROJECTS } from './constants';
 
 const TypingEffect = ({ text }: { text: string }) => {
   const [display, setDisplay] = useState('');
-  
+
   useEffect(() => {
     let i = 0;
     setDisplay('');
@@ -24,7 +24,7 @@ const TypingEffect = ({ text }: { text: string }) => {
     }, 40);
     return () => clearInterval(timer);
   }, [text]);
-  
+
   return <span>{display}<span className="animate-pulse text-teal-400">_</span></span>;
 };
 
@@ -50,9 +50,8 @@ const FadeIn = ({ children, delay = 0 }: React.PropsWithChildren<{ delay?: numbe
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      className={`transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -64,10 +63,10 @@ const App: React.FC = () => {
   return (
     <div className="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-teal-300 selection:text-teal-900 relative">
       <CursorSpotlight />
-      
+
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="lg:flex lg:items-start lg:justify-between lg:gap-4">
-          
+
           {/* LEFT COLUMN (Sticky) */}
           <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
@@ -84,23 +83,25 @@ const App: React.FC = () => {
             </div>
 
             <div className="ml-1 mt-8 flex items-center gap-5">
-               {/* Socials */}
+              {/* Socials */}
               <a href={SOCIAL_LINKS.linkedin} className="text-slate-500 hover:text-teal-400 transition-colors hover:-translate-y-1 transform duration-300" aria-label="LinkedIn" target="_blank" rel="noreferrer">
                 <Linkedin className="h-6 w-6" />
               </a>
               <a href={`mailto:${SOCIAL_LINKS.email}`} className="text-slate-500 hover:text-teal-400 transition-colors hover:-translate-y-1 transform duration-300" aria-label="Email">
                 <Mail className="h-6 w-6" />
               </a>
-               <div className="flex items-center text-slate-500 text-sm gap-2 hover:text-teal-400 transition-colors">
-                 <Phone className="h-4 w-4" />
-                 <span>{SOCIAL_LINKS.phone}</span>
-               </div>
+              <div className="group flex items-center text-slate-500 text-sm gap-2 hover:text-teal-400 transition-colors cursor-default">
+                <Phone className="h-4 w-4" />
+                <span className="max-w-0 overflow-hidden opacity-0 whitespace-nowrap transition-all duration-300 group-hover:max-w-[200px] group-hover:opacity-100">
+                  {SOCIAL_LINKS.phone}
+                </span>
+              </div>
             </div>
           </header>
 
           {/* RIGHT COLUMN (Scrollable) */}
           <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
-            
+
             {/* ABOUT SECTION */}
             <section id="about" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
               <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
@@ -119,7 +120,7 @@ const App: React.FC = () => {
                   </p>
                 </div>
               </FadeIn>
-              
+
               {/* Radar Chart Visualization */}
               <FadeIn delay={200}>
                 <SkillRadar />
@@ -131,7 +132,7 @@ const App: React.FC = () => {
               <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Experience</h2>
               </div>
-              
+
               <div className="group/list">
                 {JOBS.map((job, idx) => (
                   <FadeIn key={job.id} delay={idx * 100}>
@@ -141,11 +142,11 @@ const App: React.FC = () => {
                   </FadeIn>
                 ))}
               </div>
-              
+
               <FadeIn>
                 <div className="mt-12">
                   <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="/resume.pdf" target="_blank" rel="noreferrer">
-                    <span>View Full Résumé <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1"/></span></span>
+                    <span>View Full Résumé <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>
                 </div>
               </FadeIn>
@@ -153,7 +154,7 @@ const App: React.FC = () => {
 
             {/* SKILLS & DATA SECTION */}
             <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Skills and Visualization">
-               <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
                 <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Skills & Data</h2>
               </div>
               <FadeIn>
@@ -161,32 +162,32 @@ const App: React.FC = () => {
                   My expertise lies at the intersection of <span className="text-teal-300">Engineering</span>, <span className="text-teal-300">Project Management</span>, and <span className="text-teal-300">Data Analytics</span>. The interactive graph below illustrates how these domains connect in my daily workflows, from automating checklist generation to managing 3D design integration.
                 </p>
               </FadeIn>
-              
+
               <FadeIn delay={200}>
-                <SkillGraph data={D3_DATA} />
+                <SkillCloud data={D3_DATA} />
               </FadeIn>
-              
+
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FadeIn delay={300}>
                   <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-teal-500/30 transition-colors">
-                      <h4 className="text-slate-200 font-semibold mb-2">Engineering Software</h4>
-                      <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
-                          <li>AutoCAD</li>
-                          <li>SolidWorks</li>
-                          <li>Kompas 3D</li>
-                          <li>Microsoft Office Suite</li>
-                      </ul>
+                    <h4 className="text-slate-200 font-semibold mb-2">Engineering Software</h4>
+                    <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
+                      <li>AutoCAD</li>
+                      <li>SolidWorks</li>
+                      <li>Kompas 3D</li>
+                      <li>Microsoft Office Suite</li>
+                    </ul>
                   </div>
                 </FadeIn>
                 <FadeIn delay={400}>
                   <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-teal-500/30 transition-colors">
-                      <h4 className="text-slate-200 font-semibold mb-2">Digital & Analytics</h4>
-                      <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
-                          <li>Python (Data Science)</li>
-                          <li>Excel Power Query</li>
-                          <li>Prompt Engineering</li>
-                          <li>Big Data Visualization</li>
-                      </ul>
+                    <h4 className="text-slate-200 font-semibold mb-2">Digital & Analytics</h4>
+                    <ul className="list-disc list-inside text-sm text-slate-400 space-y-1">
+                      <li>Python (Data Science)</li>
+                      <li>Excel Power Query</li>
+                      <li>Prompt Engineering</li>
+                      <li>Big Data Visualization</li>
+                    </ul>
                   </div>
                 </FadeIn>
               </div>
@@ -209,7 +210,7 @@ const App: React.FC = () => {
               <FadeIn>
                 <div className="mt-12">
                   <a className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base font-semibold" href="https://github.com/Dun4ev?tab=repositories" target="_blank" rel="noreferrer">
-                    <span>View Full Project Archive <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1"/></span></span>
+                    <span>View Full Project Archive <span className="inline-block"><ArrowUpRight className="inline-block h-4 w-4 ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" /></span></span>
                   </a>
                 </div>
               </FadeIn>
@@ -219,7 +220,7 @@ const App: React.FC = () => {
             <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
               <p>
                 Designed and built with <span className="text-slate-200">React</span>, <span className="text-slate-200">Tailwind CSS</span>, and <span className="text-slate-200">D3.js</span>.
-                <br/>
+                <br />
                 Inspired by the portfolio of Brittany Chiang.
               </p>
             </footer>
