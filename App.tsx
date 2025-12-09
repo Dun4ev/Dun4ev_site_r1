@@ -71,13 +71,13 @@ const App: React.FC = () => {
           <header className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div>
               <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-                <a href="/">Andrej Dunajev</a>
+                <a href="/">Andrej Dunaev</a>
               </h1>
               <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl min-h-[3.5rem] sm:min-h-[2rem]">
-                <TypingEffect text="Chief Engineering Expert & Data Innovator" />
+                <TypingEffect text="Engineering Systems & AI Integration Specialist" />
               </h2>
               <p className="mt-4 max-w-xs leading-normal text-slate-400">
-                Merging 18+ years of energy infrastructure expertise with data analytics and digital transformation.
+                Integrating engineering expertise with AI, data automation, and LLM-based solutions to build transparent and future-ready systems.
               </p>
               <Navigation />
             </div>
@@ -110,13 +110,16 @@ const App: React.FC = () => {
               <FadeIn>
                 <div className="space-y-4 text-lg">
                   <p>
-                    I am a highly qualified energy infrastructure expert based in <span className="text-teal-300 font-medium">Belgrade, Serbia</span>. With over 18 years of experience managing large-scale gas pipeline and compressor station projects, I specialize in bridging the gap between traditional engineering and modern digital solutions.
+                    I work at the intersection of engineering design, infrastructure operations, and modern AI-driven automation. Since 2006, I have been involved in the full lifecycle of gas pipeline and compressor station projects: from FEED and detailed design to commissioning support, technical documentation control, TOIR workflows, and regulatory compliance.
                   </p>
                   <p>
-                    My professional philosophy isn't just about climbing the ladder—it's about building systems that make complex processes transparent, reliable, and future-ready. I have extensive experience in <span className="text-slate-200 font-medium">FEED documentation</span>, stakeholder negotiations, and regulatory compliance (PED, ATEX, Ex, CE).
+                    For me, professional growth is not about climbing a career ladder, but about expanding horizons and applying expertise where it creates the most value. I believe in building systems that make complex processes transparent, reliable, and future-ready.
                   </p>
                   <p>
-                    Beyond traditional engineering, I am passionate about <span className="text-slate-200 font-medium">Digital Transformation</span>. I develop custom tools using <span className="text-teal-300">Python</span> and <span className="text-teal-300">Excel (Power Query)</span> to automate engineering workflows, analyze big data trends, and optimize technical documentation.
+                    Over the last three years, I have been actively integrating into the IT and AI ecosystem, focusing on Large Language Models and engineering automation. I develop Python- and LLM-powered tools that classify technical documents, detect inconsistencies, generate analytical insights, and simplify complex engineering workflows. My work combines domain expertise with modern digital capabilities, creating solutions that enhance decision-making and reduce operational ambiguity.
+                  </p>
+                  <p>
+                    My mission is to bridge traditional engineering with next-generation digital transformation, enabling infrastructure projects to operate with greater clarity, precision, and intelligence.
                   </p>
                 </div>
               </FadeIn>
