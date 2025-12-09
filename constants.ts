@@ -93,21 +93,24 @@ export const PROJECTS: Project[] = [
     title: 'Automated Documentation Generator',
     description: 'A Python-based automation tool designed to streamline the creation of engineering comment sheets and technical documentation. It processes structured data from Excel/CSV inputs to generate formatted reports, significantly reducing manual data entry time.',
     tools: ['Python', 'Pandas', 'OpenPyXL', 'Automation'],
-    link: 'https://github.com/Dun4ev'
+    link: 'https://github.com/Dun4ev',
+    image: '/images/projects/documentation-generator.png'
   },
   {
     id: 'pipeline-analytics',
     title: 'Pipeline Data Analytics Tool',
     description: 'Analytical scripts for processing large datasets related to gas pipeline equipment status. The tool visualizes discrepancies between design specifications and as-built conditions to support technical compliance reviews.',
     tools: ['Python', 'Matplotlib', 'Data Analysis', 'Big Data'],
-    link: 'https://github.com/Dun4ev'
+    link: 'https://github.com/Dun4ev',
+    image: '/images/projects/pipeline-analytics.png'
   },
   {
     id: 'portfolio-v2',
     title: 'Engineering Portfolio V2',
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features interactive D3.js force-directed graphs to visualize the intersection of engineering skills, project management, and data science.',
     tools: ['React', 'TypeScript', 'Tailwind CSS', 'D3.js'],
-    link: 'https://github.com/Dun4ev'
+    link: 'https://github.com/Dun4ev',
+    image: '/images/projects/portfolio-website.png'
   }
 ];
 
