@@ -83,6 +83,30 @@
       animation: soft-blink 5s infinite ease-in-out;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    @keyframes rotate-slow {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .radar-web-base {
+      transform-origin: center;
+      transition: transform 0.8s ease-out;
+    }
+
+    .radar-rotate-web {
+      animation: rotate-slow 60s linear infinite;
+    }
+
+    .radar-web-static {
+      transform: rotate(0deg) !important;
+      animation: none !important;
+    }
   </style>
 </head>
 
