@@ -41,16 +41,16 @@ export const Navigation: React.FC = () => {
           <li key={link.name}>
             <a
               className={`group flex items-center py-3 transition-colors duration-300 ${activeSection === link.href.substring(1)
-                  ? 'text-teal-400'
-                  : 'text-slate-500 hover:text-slate-200'
+                ? 'text-teal-400'
+                : 'text-slate-500 hover:text-slate-200'
                 }`}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
             >
               <span
                 className={`mr-4 h-px transition-all duration-300 ease-in-out motion-reduce:transition-none ${activeSection === link.href.substring(1)
-                    ? 'w-16 bg-teal-400'
-                    : 'w-8 bg-slate-600 group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200'
+                  ? 'w-16 bg-teal-400'
+                  : 'w-8 bg-slate-600 group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200'
                   }`}
               ></span>
               <span className="text-xs font-bold uppercase tracking-widest transition-colors duration-300">
