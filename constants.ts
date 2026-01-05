@@ -90,27 +90,35 @@ export const JOBS: Job[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'auto-comment-sheets',
-    title: 'Automated Documentation Generator',
-    description: 'A Python-based automation tool designed to streamline the creation of engineering comment sheets and technical documentation. It processes structured data from Excel/CSV inputs to generate formatted reports, significantly reducing manual data entry time.',
+    title: 'TOiR Reporting Automation',
+    description: 'A Python-based automation tool designed to streamline the creation of engineering reports and technical documentation.',
     tools: ['Python', 'Pandas', 'OpenPyXL', 'Automation'],
-    link: 'https://github.com/Dun4ev',
+    link: 'https://github.com/Dun4ev/toir_tra_report',
     image: '/images/projects/documentation-generator.png'
   },
   {
     id: 'pipeline-analytics',
-    title: 'Pipeline Data Analytics Tool',
-    description: 'Analytical scripts for processing large datasets related to gas pipeline equipment status. The tool visualizes discrepancies between design specifications and as-built conditions to support technical compliance reviews.',
-    tools: ['Python', 'Matplotlib', 'Data Analysis', 'Big Data'],
-    link: 'https://github.com/Dun4ev',
+    title: 'TOiR Documentation Dispatcher',
+    description: 'An intelligent Python utility for automatically distributing incoming project PDF reports into target directories with automated transliteration and logging.',
+    tools: ['Python', 'Tkinter', 'JSONL', 'Automation'],
+    link: 'https://github.com/Dun4ev/toir_raspredelenije_report',
     image: '/images/projects/pipeline-analytics.png'
   },
   {
     id: 'portfolio-v2',
-    title: 'Engineering Portfolio V2',
-    description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features interactive D3.js force-directed graphs to visualize the intersection of engineering skills, project management, and data science.',
-    tools: ['React', 'TypeScript', 'Tailwind CSS', 'D3.js'],
-    link: 'https://github.com/Dun4ev',
+    title: 'AI-Powered PDF Search Engine',
+    description: 'A semantic search and question-answering system for PDF documents using RAG architecture and LLMs.',
+    tools: ['Python', 'LLM', 'RAG', 'FAISS', 'LangChain'],
+    link: 'https://github.com/Dun4ev/ai-pdf-search-system',
     image: '/images/projects/portfolio-website.png'
+  },
+  {
+    id: 'graf-html',
+    title: 'Interactive Trend Visualization',
+    description: 'A Python-based toolkit for converting raw Excel/CSV data into interactive HTML plots using Dash and Plotly.',
+    tools: ['Python', 'Dash', 'Plotly', 'Pandas'],
+    link: 'https://github.com/Dun4ev/graf_html',
+    image: '/images/projects/pipeline-analytics.png'
   }
 ];
 

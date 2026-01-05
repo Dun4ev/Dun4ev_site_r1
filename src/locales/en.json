@@ -13,7 +13,7 @@
     "about": {
         "p1": "I work at the intersection of engineering design, infrastructure operations, and modern AI-driven automation. Since 2006, I have been involved in the full lifecycle of gas pipeline and compressor station projects: from FEED and detailed design to commissioning support, technical documentation control, and regulatory compliance.",
         "p2": "For me, professional growth is not about climbing a career ladder, but about expanding horizons and applying expertise where it creates the most value. I believe in building systems that make complex processes transparent, reliable, and future-ready.",
-        "p3": "Over the last three years, I have been actively integrating into the IT and AI ecosystem, focusing on Large Language Models (LLM) and engineering automation. I develop Python- and LLM-powered tools that classify technical documents, detect inconsistencies, generate analytical insights, and simplify complex engineering workflows. My work combines domain expertise with modern digital capabilities.",
+        "p3": "Since 2023, I have been actively integrating into the IT and AI ecosystem, focusing on Large Language Models (LLM) and engineering automation within the infrastructure projects domain. I develop Python- and LLM-powered tools that classify technical documents, detect inconsistencies, generate analytical insights, and simplify complex engineering workflows. My work combines domain expertise with modern digital capabilities.",
         "p4": "My mission is to bridge traditional engineering with next-generation digital transformation, enabling infrastructure projects to operate with greater clarity, precision, and intelligence."
     },
     "experience": {
@@ -24,7 +24,7 @@
                 "title": "Chief Engineering Expert (Project Management)",
                 "description": [
                     "Provided comprehensive technical support for project and operational documentation, including pre-commissioning for main gas pipelines and compressor stations.",
-                    "Developed automated Python scripts to generate comment sheets and analyze big data trends for equipment status.",
+                    "Developed automated Python scripts for generating customer comment sheets, analyzing equipment status trends, and automating file distribution within the document management system. Automation reduced routine document distribution time from 29 minutes to 2 seconds, and transmittal generation (Excel filling + archiving + folder creation) from 5 minutes to 2 seconds.",
                     "Created detailed equipment maintenance checklists based on manufacturer documentation.",
                     "Prepared analytical data and technical conclusions for EPC contract documentation to resolve disputes.",
                     "Produced ~120 visual analytical reports comparing design vs. as-built conditions for legal claims."
@@ -34,10 +34,10 @@
                 "title": "Chief Engineering Expert (Execution)",
                 "description": [
                     "Coordinated realization of 400km main gas pipeline and compressor station construction.",
-                    "Overseen Finalization of FEED and Detail Design documentation.",
-                    "Managed coordination between design institutes (Saipem, Giprogazcentr, etc.), processing ~20,000 documents.",
-                    "Implemented MDR/MDI procedures for automated data storage.",
-                    "Participated in HAZOP reviews and ensured compliance with PED, ATEX, Ex, CE standards."
+                    "Oversaw finalization of FEED, Detailed Design, and As-built documentation.",
+                    "Managed coordination between design institutes (Saipem, Giprogazcentr, etc.), processing over 30,000 documents.",
+                    "Implemented MDR/MDI procedures for automated data storage through indexing and data structuring.",
+                    "Participated in HAZOP reviews and ensured compliance with PED, ATEX, Ex, and CE standards (including equipment certification preparation)."
                 ]
             },
             "gazprom": {
@@ -45,8 +45,8 @@
                 "description": [
                     "Coordinated a portfolio of 8+ major infrastructure projects valued from $30M to $23B.",
                     "Improved budget forecast accuracy by 5-10% through validated cost estimates.",
-                    "Reduced schedule delay risks by 5-10% via early risk identification.",
-                    "Facilitated ~250 stakeholder meetings with a 93-95% protocol action item completion rate."
+                    "Reduced project implementation delay risks by 5-10% through early identification of technical and organizational risks.",
+                    "Facilitated ~250 stakeholder meetings with a 93-95% action item completion rate based on protocol metrics."
                 ]
             },
             "kuban": {
@@ -60,9 +60,9 @@
             "yuzh-1": {
                 "title": "Lead Design Engineer",
                 "description": [
-                    "Worked on 'South Stream' and 'Bovanenkovo — Ukhta' GTI projects.",
-                    "Implemented 3D design solutions, increasing productivity by 50%.",
-                    "Optimized design processes by linking Excel and AutoCAD.",
+                    "Worked on projects like 'South Stream' and 'Bovanenkovo — Ukhta'.",
+                    "Implemented 3D design solutions that increased productivity by 70%, measured by comparing 3D vs. 2D design time.",
+                    "Optimized design processes by integrating Excel, AutoCAD, and SolidWorks.",
                     "Designed pig receiving/launching traps and valve stations in SolidWorks."
                 ]
             }
@@ -79,16 +79,20 @@
         "view_archive": "View Full Project Archive",
         "items": {
             "auto-comment-sheets": {
-                "title": "Automated Documentation Generator",
-                "description": "A Python-based automation tool designed to streamline the creation of engineering comment sheets and technical documentation. It processes structured data from Excel/CSV inputs to generate formatted reports, significantly reducing manual data entry time."
+                "title": "TOiR Reporting Automation",
+                "description": "A Python-based automation tool for preparing technical reports, index folders, and transmittals. It handles automated Excel template filling, grouping of project documentation, and ZIP archive creation, optimizing complex engineering workflows and reducing routine task time from minutes to seconds."
             },
             "pipeline-analytics": {
-                "title": "Pipeline Data Analytics",
-                "description": "Scripts for processing large datasets regarding gas pipeline equipment status. Visualizes design vs. as-built discrepancies for technical audits."
+                "title": "TOiR Documentation Dispatcher",
+                "description": "An intelligent Python utility for automatically distributing incoming project PDF reports into target directories. It features automatic filename transliteration, detailed JSONL operation logging, and a Tkinter-based GUI for pipeline monitoring, essential for managing large-scale infrastructure technical documentation."
             },
             "portfolio-v2": {
-                "title": "Engineering Portfolio V2",
-                "description": "A modern, responsive portfolio website built with React and Tailwind CSS. Features interactive D3.js force graphs to visualize the connection between engineering skills, management, and data science."
+                "title": "AI-Powered PDF Search Engine",
+                "description": "A semantic search and question-answering system for PDF documents. It utilizes RAG (Retrieval-Augmented Generation) architecture and LLMs to extract context from a FAISS vector database, providing accurate, grounded answers based on uploaded technical documentation."
+            },
+            "graf-html": {
+                "title": "Interactive Trend Visualization",
+                "description": "A Python-based web application and toolkit (Dash/Plotly) for converting raw Excel/CSV data into interactive HTML plots. It enables engineers to quickly configure and analyze signals and trends, facilitating rapid pattern recognition in technical datasets without manual coding."
             }
         }
     },
