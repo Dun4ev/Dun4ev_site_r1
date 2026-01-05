@@ -1,6 +1,7 @@
 import React from 'react';
 import { Project } from '../types';
 import { Folder, Github, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 // Ensure local assets respect the GitHub Pages base path
 const resolveImageSrc = (imagePath?: string) => {
@@ -25,6 +26,7 @@ interface Props {
 
 export const ProjectCard: React.FC<Props> = ({ project }) => {
   const imageSrc = resolveImageSrc(project.image);
+  const { t } = useTranslation();
 
   return (
     <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -37,7 +39,7 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-slate-700 group-hover:border-teal-300/50 transition-colors">
             <img
               src={imageSrc}
-              alt={project.title}
+              alt={t(`projects.items.${project.id}.title`)}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
@@ -58,7 +60,7 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           >
             <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
             <span>
-              {project.title}
+              {t(`projects.items.${project.id}.title`)}
               <span className="inline-block ml-1">
                 <ExternalLink className="h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
               </span>
@@ -66,7 +68,7 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           </a>
         </h3>
         <p className="mt-2 text-sm leading-normal text-slate-400">
-          {project.description}
+          {t(`projects.items.${project.id}.description`)}
         </p>
         <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
           {project.tools.map((tech, index) => (

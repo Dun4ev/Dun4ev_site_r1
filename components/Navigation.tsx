@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { NAV_LINKS } from '../constants';
+import { useTranslation } from 'react-i18next';
 
 export const Navigation: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('');
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,7 +56,7 @@ export const Navigation: React.FC = () => {
                   }`}
               ></span>
               <span className="text-xs font-bold uppercase tracking-widest transition-colors duration-300">
-                {link.name}
+                {t(`nav.${link.name.toLowerCase().split(' ')[0]}`)}
               </span>
             </a>
           </li>
