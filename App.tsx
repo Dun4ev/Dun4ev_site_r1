@@ -199,7 +199,20 @@ const App: React.FC = () => {
                     </ul>
                   </div>
                 </FadeIn>
-              </div>
+              </div> {/* Added missing closing div for the grid */}
+
+              <FadeIn delay={500}>
+                <div className="mt-8 p-6 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                  <h4 className="text-slate-200 font-semibold mb-4 text-center">{t('skills.key_expertise')}</h4>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {['AI Automation', 'Industrial Engineering', 'Data Analytics', 'Digital Transformation', 'Technical Documentation', 'Process Optimization', 'Python', 'Power Query', 'EPC Projects', 'PED/ATEX Compliance', 'Systems Thinking'].map((skill) => (
+                      <span key={skill} className="px-3 py-1 bg-teal-500/10 text-teal-300 border border-teal-500/20 rounded-full text-xs font-medium hover:bg-teal-500/20 transition-colors cursor-default">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
             </section>
 
             {/* PROJECTS SECTION */}

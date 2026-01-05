@@ -72,7 +72,8 @@
         "title": "Skills & Data",
         "description": "My expertise lies at the intersection of <0>Engineering</0>, <1>Project Management</1>, and <2>Data Analytics</2>. The interactive graph below illustrates how these fields are connected in my daily work — from automating checklist generation to managing 3D project integration.",
         "software": "Engineering Software",
-        "digital": "Digital Tech & Analytics"
+        "digital": "Digital Tech & Analytics",
+        "key_expertise": "Key Expertise"
     },
     "projects": {
         "title": "Projects",
